@@ -133,11 +133,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             $room_id = $row['room_id'];
 
-                                            $sql = "SELECT * from reservations where room_id = $room_id and status = 'pending'";
+                                            $sql = "SELECT * FROM reservations WHERE room_id = $room_id AND status = 'pending'";
                                             $result2 = mysqli_query($conn, $sql);
 
                                             while ($row2 = mysqli_fetch_assoc($result2)) {
-                                                $user_id = $row2["id"];
+                                                $user_id = $row2["user_id"];
                                                 $name = $row2["name"];
                                                 $contact = $row2["contact"];
                                                 $email = $row2["email"];
@@ -147,10 +147,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 $valid_id_file = isset($row2["valid_id_file"]) ? $row2["valid_id_file"] : ''; // Handle undefined array key
                                                 $proof_of_payment_file = isset($row2["proof_of_payment_file"]) ? $row2["proof_of_payment_file"] : ''; // Handle undefined array key
                                                 $status = $row2["status"];
-                                                $room_id = $row2["room_id"];
+                                                
 
                                                 $sql2 = "SELECT * from rooms where room_id = $room_id";
-                                                $result3 = mysqli_query($conn, $sql2);
+                                                $result3 = mysqli_query($conn, $sql);
                                                 $row3 = mysqli_fetch_assoc($result3);
                                                 $room_name = $row3["room_name"];
 
@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             }
                                         }
                                     } else {
-                                        echo "<tr><td colspan='7'>No requests found.</td></tr>";
+                                        echo "<tr><td colspan='9'>No requests found.</td></tr>";
                                     }
                                     ?>
                                 </tbody>
@@ -238,7 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function () {
-            $('#requestlist').DataTable();
+            //$('#requestlist').DataTable();
             // Handle the click event for the "Approve" button
             $(".approve-room").on("click", function () {
                 var roomId = $(this).data("room-id");

@@ -89,19 +89,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $last_id = mysqli_insert_id($conn);
 
         // upload the video to room_videos/id of the apartment
-        $target_dir = "uploads/room_videos/" . $last_id . "/";
-        $target_file_video = $target_dir . basename($_FILES["video"]["name"]);
-        // Check if the directory exists
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
+        // $target_dir = "uploads/room_videos/" . $last_id . "/";
+        // $target_file_video = $target_dir . basename($_FILES["video"]["name"]);
+        // // Check if the directory exists
+        // if (!file_exists($target_dir)) {
+        //     mkdir($target_dir, 0777, true);
+        // }
 
-        // Upload the video
-        if (move_uploaded_file($_FILES["video"]["tmp_name"], $target_file_video)) {
-            // File uploaded successfully
-        } else {
-            die("<div class='alert alert-danger'>Error uploading 'Video of apartment' file.</div>");
-        }
+        // // Upload the video
+        // if (move_uploaded_file($_FILES["video"]["tmp_name"], $target_file_video)) {
+        //     // File uploaded successfully
+        // } else {
+        //     die("<div class='alert alert-danger'>Error uploading 'Video of apartment' file.</div>");
+        // }
         echo "<div class='alert alert-success'>Data inserted successfully.</div>";
     } else {
         die("<div class='alert alert-danger'>Error inserting data: " . mysqli_error($conn) . "</div>");
@@ -251,14 +251,14 @@ mysqli_close($conn);
                         </div>
                     </div>
                     <!-- Upload video of apartment -->
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <input type="file" class="form-control" placeholder="Video of apartment" name="video" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-video"></span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <button type="submit" class="btn btn-outline-success btn-block">Register</button>
                     </div>

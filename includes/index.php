@@ -18,7 +18,7 @@
         }
 
         .carousel-caption {
-            font-size: 1.5rem;
+            font-size: 1rem;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);

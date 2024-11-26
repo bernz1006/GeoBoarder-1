@@ -323,8 +323,8 @@ function showSuccessMessage($message)
                 ?>
             </div>
             <hr />
-            <div class="row justify-content-center">
-                <h3 class="text-center display-5">Location & Video</h3><br />
+            <div class="row">
+                <h3 class="display-5">Location:</h3><br />
             </div>
 
             <div class="row">
@@ -333,31 +333,25 @@ function showSuccessMessage($message)
                 </div>
                 <div class="col-md-6">
                     <!-- Display every video in carousel style inside the $video_link -->
-                    <div id="videoCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- <div id="videoCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <?php
-                            $videoDirectory = $video_link . "/"; // Adjust the directory path as needed
+                            $videoDirectory = $video_link . "/"; 
                             $videos = [];
 
-                            // Check if the directory exists
                             if (is_dir($videoDirectory)) {
-                                // Get all files in the directory
                                 $files = scandir($videoDirectory);
-
-                                // Filter out "." and ".." entries
                                 $files = array_diff($files, array('.', '..'));
 
-                                // Add each file to the roomImages array
                                 foreach ($files as $file) {
                                     $videos[] = $file;
                                 }
                             }
 
-                            // Display room images as carousel items
                             foreach ($videos as $index => $video) {
                                 $activeClass = ($index === 0) ? 'active' : '';
                                 echo '<div class="carousel-item ' . $activeClass . '">';
-                                echo '<video width="75%" height="75%" controls>'; // Set width and height to 75%
+                                echo '<video width="75%" height="75%" controls>';
                                 echo '<source src="' . $videoDirectory . $video . '" type="video/mp4">';
                                 echo '</video>';
                                 echo '</div>';
@@ -372,7 +366,7 @@ function showSuccessMessage($message)
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only"><i class="fa fa-chevron-right"></i></span>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

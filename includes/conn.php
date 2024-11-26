@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "geoboarder_db";
+$db = "home_finder1_db";
 
 $conn = new mysqli($servername, $username, $password, $db);
 
